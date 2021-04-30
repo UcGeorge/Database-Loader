@@ -2,3 +2,5 @@
 *.pyc
 medical.sql
 stuff.py
+.vscode/launch.json
+.vscode/settings.json
