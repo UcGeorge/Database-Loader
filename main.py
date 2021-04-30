@@ -41,18 +41,17 @@ if __name__ == '__main__':
     mydb = init_db()
 
     run_command = {
-        'SELECT': lambda cursor: select(cursor),
-        'SELECT WHERE': lambda cursor: select(cursor, where=True),
-        'INSERT': lambda cursor: insert(cursor),
-        'DELETE': lambda cursor: delete(cursor),
-        'Show Log': lambda cursor: print(log)
+        'SELECT': lambda mydb: select(mydb),
+        'SELECT WHERE': lambda mydb: select(mydb, where=True),
+        'INSERT': lambda mydb: insert(mydb),
+        'DELETE': lambda mydb: delete(mydb),
+        'Show Log': lambda mydb: print(log)
     }
 
     while True:
-        mycursor = mydb.cursor()
         os.system('cls')
         command = prompt(commands)['command']
 
-        output = run_command[command](mycursor)
+        output = run_command[command](mydb)
         log += f'\n>> {output}'
         input('Press (enter) to continue...')

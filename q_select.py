@@ -5,7 +5,8 @@ from examples import custom_style_3
 from terminaltables import AsciiTable
 
 
-def select(cursor, where: bool = False) -> str:
+def select(mydb, where: bool = False) -> str:
+    cursor = mydb.cursor()
     cursor.execute("SHOW TABLES")
     tables = [x[0] for x in cursor.fetchall()]
 
