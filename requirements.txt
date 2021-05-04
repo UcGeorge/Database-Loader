@@ -1,3 +1,4 @@
 pyfiglet
 PyInquirer
 terminaltables
+names
